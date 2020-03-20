@@ -1,0 +1,29 @@
+Summary
+
+Introduction
+A Hackathon/Sprint was organised under the auspices of OGC to progress development of the Environmental Data Retrievl API. It was to be hosted by the US National Wewather Service near Washington DC, from 18-20 March 2020. Unfortunately, because of the global health crisis, a physical face-to-face meeting was cancelled. it was decided to hold a virtual Hackathon/Sprint, more or less keeping to US Washington time (Eastern Daylight savings Time) and to communicate using GoToMeeting teleconferencing facilitles of OGC, email and GitHub.
+
+Participants
+There were about two dozen attendees, from the far East, Eurpoe and north America.They represented OGC, government departments, universities and private companies.
+
+Objectives
+
+  (copy from Intro slides)
+
+  (add themes too)
+
+Working Methods
+A GitHub repository was established at https://github.com/opengeospatial/EDR-API-Sprint . A branch of the EDR API Candidate standard was also created at https://github.com/opengeospatial/Environmental-Data-Retrieval-API , so that changes could readily be makde if required. Attendees also raised Issues in the Sprint repository to indicate their objectives, and any issues encountered. discussions were then followed on the Issues tabs.
+
+Also, at the beginning and end of each working day, briefing sessions were held on GoToMeeting to present work done, and to discuss in more depth any issues and their resolutions.
+
+Issues addressed
+
+  (copy titles from Github)
+  
+Issues resolved  
+
+Issues outstanding
+  
+
+Recommendations
