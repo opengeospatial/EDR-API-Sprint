@@ -3,9 +3,9 @@ Summary
 Introduction
 A Hackathon/Sprint was organised under the auspices of OGC to progress development of the Environmental Data Retrieval API (EDR-API). It was to be hosted by the US National Wewather Service near Washington DC, from 18-20 March 2020. Unfortunately, because of the global health crisis, the physical face-to-face meeting was cancelled. it was decided to hold a virtual Hackathon/Sprint, more or less keeping to US Washington time (Eastern Daylight savings Time) and to communicate using GoToMeeting teleconferencing facilitles of OGC, email and GitHub.
 
-The EDR-API is intended to allow a small amount of data, as required, to be retrieved by coordinates from data stores that are too large or impractical to copy and transmit. The API is being developed by the OGC EDR API Standard Working Group, whose charter is at https://github.com/opengeospatial/Environmental-Data-Retrieval-API/blob/master/EnvironmentalDataRetrievalAPI-SWG-Charter.adoc , and the latest version of the candidate standard is at https://github.com/opengeospatial/Environmental-Data-Retrieval-API/blob/master/candidate-standard/EDR-candidate-specification.adoc .
+The EDR-API is intended to allow a small amount of data, as required, to be retrieved by coordinates from data stores that are too large or impractical to copy and transmit. The API is being developed by the OGC EDR API Standard Working Group, whose charter is at https://github.com/opengeospatial/Environmental-Data-Retrieval-API/blob/master/EnvironmentalDataRetrievalAPI-SWG-Charter.adoc , and the latest version of the candidate standard is at https://github.com/opengeospatial/Environmental-Data-Retrieval-API/blob/master/candidate-standard/EDR-candidate-specification.adoc . background reading material is at https://github.com/opengeospatial/Environmental-Data-Retrieval-API .
 
-The first draft of the candidate standard was based on the OGC API - Features, Part 1: Core and what is now OGC API - Common, Part 1: Core following a hackathon in London during June 2019.
+The first draft of the candidate standard was based on the OGC API - Features, Part 1: Core and what is now OGC API - Common, Part 1: Core following a hackathon in London during June 2019, both of which follow OGC currnet policy on API development and are consistent with OpenAPI Version 3.
 
 Participants
 There were about two dozen attendees, from north America, the far East, and Europe. They represented OGC, government departments, universities and private companies:
@@ -32,31 +32,29 @@ Clemens Portele, Interactive Instruments
 Tom Kralidis, Meteorological Service of Canada
 Stephan Siemen, ECMWF 
 
-EDR API Sprint Purpose:
-Provide feedback based on the current candidate specification, and assess the compatibility with the OGC API - Features standard and the in-progress OGC API - Common standard. 
+Purpose:
+The EDR API Sprint was to provide feedback based on the current ERD API candidate specification, and assess the compatibility with the "OGC API - Features - Part 1: Core" https://github.com/opengeospatial/ogcapi-features/tree/master/core/standard standard and the in-progress "OGC API - Common - Part 1: Core standard" https://github.com/opengeospatial/oapi_common/tree/March-2020-Updates/standard . 
 
-EDR API Sprint Goals:
-Build implementations of the EDR API service based on existing data stores;
-Develop client-side value-added applications that consume data from prototype implementations;
-Develop prototype functionality through running code.
+Goals:
+Build implementations of the EDR API service based on existing data stores, both client and server-sides;
+Develop client-side value-added applications that consume data from prototype implementations of EDR API;
+Develop prototype functionality for EDR API through developing and running code.
 
-EDR API Sprint objectives:
-Verify and validate requirements and methods for the query and filter operations of the EDR API;
-Rapid prototyping of other geometry types for the EDR API (partitioned grids or tiles, vertical profiles and/or trajectories/corridors);
-Make progress on conformance testing of EDR API parts based on queries;
-Develop client-side value-added applications that consume data from UK Met Office and NWS API prototype implementations.
+Objectives:
+Verify and validate requirements and methods for the Query and Filter operations of the EDR API;
+Prototype rapidly other geometry types for the EDR API (partitioned grids or tiles, vertical profiles and/or trajectories/corridors);
+Develop client-side value-added applications that consume data from UK Met Office and US NWS prototype EDR API implementations;
+Make progress on conformance testing of EDR API parts based on queries.
 
-EDR API Sprint suggested deliverables:
-Code;
+Proposed deliverables:
+Software Code;
 Recommended changes to the EDR API specification;
 Report on level of compatibility with OGC API Features and Common;
 Recommendations for other OGC APIs (Features, Common, etc);
 Report on conformance class testing.
 
-Review use cases
-Locations for available data and implementations
-Demonstration of planned automation tools for data providers
-Demonstration of client side APIs (single and multi-domain feature extractions)
+Use Cases
+The Sprint introduced a quick review of the EDR API use cases at https://github.com/opengeospatial/Environmental-Data-Retrieval-API/tree/master/use-cases .
 
 Identification of the problem:
 Environmental data typically involves huge datasets
@@ -64,6 +62,10 @@ Rapid information replacement
 Generated by a multitude of data resources
 Large number of interested users from multiple domains
 Service reliability and scalability is essential!
+
+Locations for available data and implementations
+Demonstration of planned automation tools for data providers
+Demonstration of client side APIs (single and multi-domain feature extractions)
 
 Why are we using a different approach?
 Existing WFS and WCS have powerful query capabilities, however:
@@ -88,7 +90,6 @@ Easier to implement
 Interoperability through simplicity
 Simple to consume
 Easier access control
-Consistent with OpenAPI specification 
 
 How does the EDR API relate?
 Part of a proposed family of the OGC API Common standard
@@ -96,7 +97,6 @@ Complementary to existing services
 Intended for a different audience (Lowering the bar of entry for OGC web services)
 Serve as basic introduction to OGC service
 Queries are based on common but distinct geometry types (i.e. points/timeseries, polygons, etc)
-
 
 Review use cases
 Get Parameters for a Point across a Timeseries
@@ -125,10 +125,8 @@ Create a map between dimension names and dimension values (pandas dataframe)
 Group common parameters together (unique parameter ID) that have same dimensions
 With the information gathered above, can create the collections of parameters (that have common dimensions), and output in JSON.
 Convert the original dataset to zarr using the collections JSON. Each zarr datastore represents a specific collection. With the parameters grouped by common dimensions, we will be able to make more complex queries.
-Try the Automated aggregation of collections on your own:
-https://github.com/ShaneMill1/edr-automation
+Try the Automated aggregation of collections on your own: https://github.com/ShaneMill1/edr-automation
 
-Demonstration of client side APIs
 Demonstrations of client-side APIs
 https://data-api.mdl.nws.noaa.gov/EDR-CLIENT-API
 http://labs.metoffice.gov.uk/map/wotwdemo/
@@ -137,17 +135,54 @@ Observations from a point cloud – latest airfield obs
 Gridded forecast current data from US NWS (GFS)
 Gridded forecast data from 2 day old UK Met Office Global Unified Model
 
-
-  (add themes too)
-
 Working Methods
-A GitHub repository was established at https://github.com/opengeospatial/EDR-API-Sprint . A branch of the EDR API Candidate standard was also created at https://opengeospatial.github.io/EDR-API-Sprint/edr-api.html so that changes could readily be makde if required. Attendees also raised Issues in the Sprint repository to indicate their objectives, and any issues encountered. discussions were then followed on the Issues tabs.
+A GitHub repository was established at https://github.com/opengeospatial/EDR-API-Sprint . A branch of the EDR API Candidate standard was also created at https://opengeospatial.github.io/EDR-API-Sprint/edr-api.html so that changes could readily be made if required. Attendees also raised Issues in the Sprint repository to indicate their objectives, and any issues encountered. discussions were then followed on the Issues tabs.
 
-Also, at the beginning and end of each working day, briefing sessions were held on GoToMeeting to present work done, and to discuss in more depth any issues and their resolutions.
+Background information was supplied in a Slide presentation https://docs.google.com/presentation/d/1vU8O7dnkima9Vch_T0ebECV5RRjSw-8Kuox15gN2Z4k/edit?usp=sharing and wiki pages at https://github.com/opengeospatial/EDR-API-Sprint/wiki .
+
+Also, at the beginning and end of each working day, briefing sessions were held on GoToMeeting to present work done, and to discuss in more depth any issues and their resolutions. Sessions were chosen to enable the different time zones to take part.
 
 Issues addressed
+Issue #20 Objective: Mark Burgoyne developing new EDR API server and client
+1
+Issue #19 Ability to provide search engine using artifacts from Aggregation of Collection IDs
+#19 opened 5 days ago by ShaneMill1
+2
+Issue #18 Streaming of EDR API response media types
 
-  (copy titles from Github)
+Issue #17 ESRI sprint telco
+1
+Issue #16 Objective: Conformance testing
+2
+Issue #15 JSON-Schema for /collections/{collectionID}/items
+5
+Issue #14 Further Development of Aggregation of Collections Aggregation of Collections
+12
+Issue #12 Items view of EDR resources. items
+7
+Issue #11 Groups versus Collections
+5
+Issue #10 Objective: Corridor, 3D or 4D
+2
+Issue #09 Objective: Trajectory, 2D, 3D or 4D
+6
+Issue #08 Objective: Tile/Cube in 3D or 4D
+5
+Issue #07 Objective: polygons in 3D and 4D
+
+Issue #06 Objective: polygon in 3D or 4D
+3
+Issue #05 Objective: polygon and tile
+
+Issue #04 Objective: Point, timeseries at a point ,and vertical profile at a point
+6
+Issue #03 WHU sprint goals
+5
+issue #02 Explore putting EDR API on ESRI REST API image server
+ 
+Issue #01 USGS-Water sprint goals
+2
+
   
 Issues resolved  
 
