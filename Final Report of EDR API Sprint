@@ -1,10 +1,14 @@
 Summary
 
 Introduction
-A Hackathon/Sprint was organised under the auspices of OGC to progress development of the Environmental Data Retrieval API. It was to be hosted by the US National Wewather Service near Washington DC, from 18-20 March 2020. Unfortunately, because of the global health crisis, the physical face-to-face meeting was cancelled. it was decided to hold a virtual Hackathon/Sprint, more or less keeping to US Washington time (Eastern Daylight savings Time) and to communicate using GoToMeeting teleconferencing facilitles of OGC, email and GitHub.
+A Hackathon/Sprint was organised under the auspices of OGC to progress development of the Environmental Data Retrieval API (EDR-API). It was to be hosted by the US National Wewather Service near Washington DC, from 18-20 March 2020. Unfortunately, because of the global health crisis, the physical face-to-face meeting was cancelled. it was decided to hold a virtual Hackathon/Sprint, more or less keeping to US Washington time (Eastern Daylight savings Time) and to communicate using GoToMeeting teleconferencing facilitles of OGC, email and GitHub.
+
+The EDR-API is intended to allow a small amount of data, as required, to be retrieved by coordinates from data stores that are too large or impractical to copy and transmit. The API is being developed by the OGC EDR API Standard Working Group, whose charter is at https://github.com/opengeospatial/Environmental-Data-Retrieval-API/blob/master/EnvironmentalDataRetrievalAPI-SWG-Charter.adoc , and the latest version of the candidate standard is at https://github.com/opengeospatial/Environmental-Data-Retrieval-API/blob/master/candidate-standard/EDR-candidate-specification.adoc .
+
+The first draft of the candidate standard was based on the OGC API - Features, Part 1: Core and what is now OGC API - Common, Part 1: Core following a hackathon in London during June 2019.
 
 Participants
-There were about two dozen attendees, from the far East, Europe and north America.They represented OGC, government departments, universities and private companies:
+There were about two dozen attendees, from north America, the far East, and Europe. They represented OGC, government departments, universities and private companies:
 
 Steve Olson, US NWS
 Shane Mill , US NWS
@@ -25,20 +29,13 @@ Clemens Portele, Interactive Instruments
 Tom Kralidis, Meteorological Service of Canada
 Stephan Siemen, ECMWF 
 
-
-
-
 Objectives
 
-  (copy from Intro slides)
-Introduction and purpose of EDR API
-EDR API Standards Working Group (SWG) updates on EDR API specification
 EDR API Sprint goals and objectives
 Review use cases
 Locations for available data and implementations
 Demonstration of planned automation tools for data providers
 Demonstration of client side APIs (single and multi-domain feature extractions)
-How to proceed and addressing questions
 
 Identification of the problem:
 Environmental data typically involves huge datasets
