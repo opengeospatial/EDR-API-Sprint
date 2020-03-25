@@ -1,10 +1,32 @@
 Summary
 
 Introduction
-A Hackathon/Sprint was organised under the auspices of OGC to progress development of the Environmental Data Retrievl API. It was to be hosted by the US National Wewather Service near Washington DC, from 18-20 March 2020. Unfortunately, because of the global health crisis, a physical face-to-face meeting was cancelled. it was decided to hold a virtual Hackathon/Sprint, more or less keeping to US Washington time (Eastern Daylight savings Time) and to communicate using GoToMeeting teleconferencing facilitles of OGC, email and GitHub.
+A Hackathon/Sprint was organised under the auspices of OGC to progress development of the Environmental Data Retrieval API. It was to be hosted by the US National Wewather Service near Washington DC, from 18-20 March 2020. Unfortunately, because of the global health crisis, the physical face-to-face meeting was cancelled. it was decided to hold a virtual Hackathon/Sprint, more or less keeping to US Washington time (Eastern Daylight savings Time) and to communicate using GoToMeeting teleconferencing facilitles of OGC, email and GitHub.
 
 Participants
-There were about two dozen attendees, from the far East, Eurpoe and north America.They represented OGC, government departments, universities and private companies.
+There were about two dozen attendees, from the far East, Europe and north America.They represented OGC, government departments, universities and private companies:
+
+Steve Olson, US NWS
+Shane Mill , US NWS
+Paul Hershberg, US NWS
+Dave Blodgett, USGS 
+Jim Kreft, USGS 
+Chris Little, UK Met Office
+Mark Burgoyne, UK Met Office
+Pete Trevelyan, UK Met Office
+Peng Yue, Wuhan University 
+Boyi ShangGuan, Wuhan University 
+Lei Hu, Wuhan University 
+Zhang Mingda, Wuhan University
+George Percivall, OGC
+Josh Liebermann, OGC
+Chuck Heazel, HeazelTech LLC
+Clemens Portele, Interactive Instruments 
+Tom Kralidis, Meteorological Service of Canada
+Stephan Siemen, ECMWF 
+
+
+
 
 Objectives
 
