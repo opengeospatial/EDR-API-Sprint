@@ -22,6 +22,9 @@ Peng Yue, Wuhan University
 Boyi ShangGuan, Wuhan University 
 Lei Hu, Wuhan University 
 Zhang Mingda, Wuhan University
+Jeff Donze ESRI
+Sudhir Shrestha ESRI
+Keith Ryden ESRI 
 George Percivall, OGC
 Josh Liebermann, OGC
 Chuck Heazel, HeazelTech LLC
@@ -29,9 +32,27 @@ Clemens Portele, Interactive Instruments
 Tom Kralidis, Meteorological Service of Canada
 Stephan Siemen, ECMWF 
 
-Objectives
+EDR API Sprint Purpose:
+Provide feedback based on the current candidate specification, and assess the compatibility with the OGC API - Features standard and the in-progress OGC API - Common standard. 
 
-EDR API Sprint goals and objectives
+EDR API Sprint Goals:
+Build implementations of the EDR API service based on existing data stores;
+Develop client-side value-added applications that consume data from prototype implementations;
+Develop prototype functionality through running code.
+
+EDR API Sprint objectives:
+Verify and validate requirements and methods for the query and filter operations of the EDR API;
+Rapid prototyping of other geometry types for the EDR API (partitioned grids or tiles, vertical profiles and/or trajectories/corridors);
+Make progress on conformance testing of EDR API parts based on queries;
+Develop client-side value-added applications that consume data from UK Met Office and NWS API prototype implementations.
+
+EDR API Sprint suggested deliverables:
+Code;
+Recommended changes to the EDR API specification;
+Report on level of compatibility with OGC API Features and Common;
+Recommendations for other OGC APIs (Features, Common, etc);
+Report on conformance class testing.
+
 Review use cases
 Locations for available data and implementations
 Demonstration of planned automation tools for data providers
@@ -76,25 +97,6 @@ Intended for a different audience (Lowering the bar of entry for OGC web service
 Serve as basic introduction to OGC service
 Queries are based on common but distinct geometry types (i.e. points/timeseries, polygons, etc)
 
-Purpose
-
-Attempt to build implementations of the data API service based on existing data stores
-Develop client-side value-added applications that consume data from UK Met Office and NWS API prototype implementations 
-Provide feedback based on the current specifications
-Rapid prototyping of other geometry types for the EDR API (partitioned grids or tiles, vertical profiles and/or trajectories/corridors).
-
-The objectives of this Sprint are to:
-Verify and validate requirements and methods for the query and filter operations of the EDR API
-Develop prototype functionality through running code
-Assess the compatibility of the capabilities with the OGC API - Features standard and the in-progress OGC API - Common standard. 
-Make progress on conformance testing of EDR API parts based on queries
-
-The suggested deliverables of this Sprint include:
-Code
-Recommended changes to the EDR API specification
-Report on level of compatibility with OGC API Features and Common
-Report on conformance class testing
-Recommendations for other OGC APIs (Features, Common, etc)
 
 Review use cases
 Get Parameters for a Point across a Timeseries
