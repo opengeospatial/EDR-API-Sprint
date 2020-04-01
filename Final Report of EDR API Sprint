@@ -3,7 +3,9 @@ Summary
 Introduction
 A Hackathon/Sprint was organised under the auspices of OGC to progress development of the Environmental Data Retrieval API (EDR-API). It was to be hosted by the US National Weather Service near Washington DC, from 18-20 March 2020. Unfortunately, because of the global health crisis, the physical face-to-face meeting was cancelled. It was decided to hold a virtual Hackathon/Sprint, more or less keeping to US Washington time (Eastern Daylight savings Time) and to communicate using GoToMeeting teleconferencing facilitles of OGC, email and GitHub.
 
-The EDR-API is intended to allow a small amount of data, as required, to be retrieved by coordinates from data stores that are too large or impractical to copy and transmit. The API is being developed by the OGC EDR API Standard Working Group, whose charter is at https://github.com/opengeospatial/Environmental-Data-Retrieval-API/blob/master/EnvironmentalDataRetrievalAPI-SWG-Charter.adoc , and the latest version of the candidate standard is at https://github.com/opengeospatial/Environmental-Data-Retrieval-API/blob/master/candidate-standard/EDR-candidate-specification.adoc . Background reading material is at https://github.com/opengeospatial/Environmental-Data-Retrieval-API .
+The EDR-API is intended to allow a small amount of data, as required, to be retrieved by coordinates from data stores that are too large or impractical to copy and transmit. The data queries are based on common but distinct geometry types (i.e. points/timeseries, polygons, trajectories, etc).
+
+The API is being developed by the OGC EDR API Standard Working Group, whose charter is at https://github.com/opengeospatial/Environmental-Data-Retrieval-API/blob/master/EnvironmentalDataRetrievalAPI-SWG-Charter.adoc , and the latest version of the candidate standard is at https://github.com/opengeospatial/Environmental-Data-Retrieval-API/blob/master/candidate-standard/EDR-candidate-specification.adoc . Background reading material is at https://github.com/opengeospatial/Environmental-Data-Retrieval-API .
 
 The first draft of the candidate standard was based on the OGC API - Features, Part 1: Core and what is now OGC API - Common, Part 1: Core following a hackathon in London during June 2019, both of which follow OGC current policy on API development and are consistent with OpenAPI Version 3.
 
@@ -52,13 +54,16 @@ All the logic is in the “collection” itself (self describing) and the self-d
 
 Previous experiments, prototypes, experiences and production implementations give confidence that this approach avoids large scale duplication of data, is easier to implement, with easier access control supplied by modern API management tools, and gives interoperability through simplicity.
 
+The EDR API is intended to be part of a proposed family of OGC APIs that are complementary to existing OGC Web-based geospatial services.
+These new APIs are intended for a different audience, web developers rather than geospatial specialists, and serve as basic introduction to OGC services thus lowering the bar for entry to using OGC web services.
+
 Goals
 These were developed in meetings of the EDR Standard WG and the Met Ocean Domain WG, with other input from OGC staff and Members:
 * Build implementations of the EDR API service based on existing data stores, both client and server-sides;
 * Develop client-side value-added applications that consume data from prototype implementations of EDR API;
 * Develop prototype functionality for EDR API through developing and running code.
 
-The goals were refined by the working grops into these more specific objectives and deliverables:
+The goals were refined by the working groups into these more specific objectives and deliverables:
 
 Objectives:
 Verify and validate requirements and methods for the Query and Filter operations of the EDR API;
@@ -76,35 +81,23 @@ Proposed deliverables:
 These goals, objectives and deliverables were all discussed by the attendees prior to the meeting and in the opening session.
 
 Use Cases
-The Sprint introduced a quick review of the EDR API use cases at https://github.com/opengeospatial/Environmental-Data-Retrieval-API/tree/master/use-cases .
+The Sprint introduced a quick review of the EDR API use cases at https://github.com/opengeospatial/Environmental-Data-Retrieval-API/tree/master/use-cases . These included:
+* Get Parameters for a Point across a Timeseries
+* Obtain or view a forecast time series of a parameter at a point
+* Get Unstructured Obs from within a Polygon
+* Show Weather Radar data timeseries
+* Obtain or view Air Traffic Hazards and Restrictions for an Area
 
-Locations for available data and implementations
-Demonstration of planned automation tools for data providers
-Demonstration of client side APIs (single and multi-domain feature extractions)
-
-
-How does the EDR API relate?
-Part of a proposed family of the OGC API Common standard
-Complementary to existing services
-Intended for a different audience (Lowering the bar of entry for OGC web services)
-Serve as basic introduction to OGC service
-Queries are based on common but distinct geometry types (i.e. points/timeseries, polygons, etc)
-
-Review use cases
-Get Parameters for a Point across a Timeseries
-Obtain or view a forecast time series of a parameter at a point
-Get Unstructured Obs from a Polygon
-Show Weather Radar data timeseries
-Obtain or view Air Traffic Hazards and Restrictions for an Area
-
-Implementations
-Uk Met Office: http://labs.metoffice.gov.uk/edr/
+Existing Data and Implementations
+Implementations:
+* UK Met Office: http://labs.metoffice.gov.uk/edr/
 Available data offered (Metars, GFS, NDFD, UK Global Model data, Open Streetmap, DEM)
-NWS:https://data-api.mdl.nws.noaa.gov/EDR-API
-Available data offered (Metars, Tafs, GFS, NAM, NDFD)
-Data Sources
-Amazon data sources:  https://registry.opendata.aws/?search=tags:gis,earth%20observation,mapping,meteorological,environmental,transportation
 
+* NWS:https://data-api.mdl.nws.noaa.gov/EDR-API
+Available data offered (Metars, Tafs, GFS, NAM, NDFD)
+
+Data Sources
+* Amazon data sources:  https://registry.opendata.aws/?search=tags:gis,earth%20observation,mapping,meteorological,environmental,transportation
 
 Demonstration of planned automation tools for data providers
 Automated aggregation of collections (3D, 4D, 5D)
@@ -119,7 +112,7 @@ With the information gathered above, can create the collections of parameters (t
 Convert the original dataset to zarr using the collections JSON. Each zarr datastore represents a specific collection. With the parameters grouped by common dimensions, we will be able to make more complex queries.
 Try the Automated aggregation of collections on your own: https://github.com/ShaneMill1/edr-automation
 
-Demonstrations of client-side APIs
+Demonstration of client side APIs (single and multi-domain feature extractions)
 https://data-api.mdl.nws.noaa.gov/EDR-CLIENT-API
 http://labs.metoffice.gov.uk/map/wotwdemo/
 Uses the EDR API to access time series at a point for:
@@ -128,7 +121,7 @@ Gridded forecast current data from US NWS (GFS)
 Gridded forecast data from 2 day old UK Met Office Global Unified Model
 
 Working Methods
-A GitHub repository was established at https://github.com/opengeospatial/EDR-API-Sprint . A branch of the EDR API Candidate standard was also created at https://opengeospatial.github.io/EDR-API-Sprint/edr-api.html so that changes could readily be made if required. Attendees also raised Issues in the Sprint repository to indicate their objectives, and any issues encountered. discussions were then followed on the Issues tabs.
+A GitHub repository was established at https://github.com/opengeospatial/EDR-API-Sprint . A branch of the EDR API Candidate standard was also created at https://opengeospatial.github.io/EDR-API-Sprint/edr-api.html so that changes could readily be made if required. Attendees also raised Issues in the Sprint repository to indicate their objectives, and any issues encountered. Discussions were then followed on the Issues tabs and tagged according to their content.
 
 Background information was supplied in a Slide presentation https://docs.google.com/presentation/d/1vU8O7dnkima9Vch_T0ebECV5RRjSw-8Kuox15gN2Z4k/edit?usp=sharing and wiki pages at https://github.com/opengeospatial/EDR-API-Sprint/wiki .
 
@@ -174,9 +167,9 @@ issue #02 Explore putting EDR API on ESRI REST API image server
  
 Issue #01 USGS-Water sprint goals
 2
-
   
 Issues resolved  
+
 
 Issues outstanding
   
@@ -184,9 +177,6 @@ Issues outstanding
 Recommendations
 
 
-
-Develop Tags for github issues (which objectives)
-Summaries and discussion at beginning and end of day
 Team formations?  Structured or unstructured?
 Poll of how teams map across 3 larger objectives 
 Plans for next sprint
