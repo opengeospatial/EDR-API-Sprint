@@ -127,52 +127,50 @@ Background information was supplied in a Slide presentation https://docs.google.
 
 Also, at the beginning and end of each working day, briefing sessions were held on GoToMeeting to present work done, and to discuss in more depth any issues and their resolutions. Sessions were chosen to enable the different time zones to take part.
 
-Issues addressed
-Issue #20 Objective: Mark Burgoyne developing new EDR API server and client
-1
-Issue #19 Ability to provide search engine using artifacts from Aggregation of Collection IDs
-#19 opened 5 days ago by ShaneMill1
-2
-Issue #18 Streaming of EDR API response media types
+Objectives
+Most attendees, either individuals or teams, identified specific objectives that they would like to acheive. These were:
 
-Issue #17 ESRI sprint telco
-1
-Issue #16 Objective: Conformance testing
-2
-Issue #15 JSON-Schema for /collections/{collectionID}/items
-5
-Issue #14 Further Development of Aggregation of Collections Aggregation of Collections
-12
-Issue #12 Items view of EDR resources. items
-7
-Issue #11 Groups versus Collections
-5
-Issue #10 Objective: Corridor, 3D or 4D
-2
-Issue #09 Objective: Trajectory, 2D, 3D or 4D
-6
-Issue #08 Objective: Tile/Cube in 3D or 4D
-5
-Issue #07 Objective: polygons in 3D and 4D
+1. Develop new EDR API server and client, Mark Burgoyne (Issue #20) 
+This is still work in progress, to track and implement the changes to the latest EDI API specification, and also to try out some novel ideas. This addressed the Issue #04, Objective: Point, timeseries at a point, and vertical profile at a point
 
-Issue #06 Objective: polygon in 3D or 4D
-3
-Issue #05 Objective: polygon and tile
+2. Demonstrate automatic harvesting of metadata from aggregations of data stores to improve search capabilities for use in conjunction with the EDR API, US NWS (Issue #19 and Issue #14))
 
-Issue #04 Objective: Point, timeseries at a point ,and vertical profile at a point
-6
-Issue #03 WHU sprint goals
-5
-issue #02 Explore putting EDR API on ESRI REST API image server
- 
-Issue #01 USGS-Water sprint goals
-2
-  
-Issues resolved  
+3. Implement Trajectory queries against typhoon/hurricane data. Wuhan University (Issue #03)
+This is the same as Issue #09, Objective: Trajectory, 2D, 3D or 4D. The trajectory query was successfully implemented in all the 2D, 3D and 4D cases, using the EDR API specification proposal to use Well Known Text (WKT) Linestring formats.
+
+4. Explore putting EDR API on ESRI REST API image server, UK Met Office, ESRI (Issue #02 and Issue #17)
+This is ongoing work. There do not seem to be any fundamental architectural problems with possible approaches for the proposed use cases.
+
+5. Use EDR API to retrieve feature orientated observations from hydrological network data stores, USGS (Issue #01) 
+
+7. Conformance testing, ECMWF (Issue #16)
+There was general support for this topic, but no work was done.
+
+7. The remaining Issues #04 - #10 were generic objectives covering the full scope of data query patterns of the EDR API, but divided up acording to expected difficulty.
+*  Point, timeseries at a point, and vertical profile at a point
+*  Polygon and tile (2D)
+*  Polygon in 3D or 4D
+*  Polygons in 3D and 4D
+*  Tile/Cube in 3D or 4D
+*  Trajectory, 2D, 3D or 4D
+*  Corridor, 3D or 4D
+
+Issues arising and ressolved
 
 
 Issues outstanding
-  
+
+
+
+Issue #18 Streaming of EDR API response media types
+
+Issue #15 JSON-Schema for /collections/{collectionID}/items
+5
+Issue #12 Items view of EDR resources.
+7
+Issue #11 Groups versus Collections
+5
+
 
 Recommendations
 
