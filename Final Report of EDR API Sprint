@@ -143,10 +143,13 @@ This is ongoing work. There do not seem to be any fundamental architectural prob
 
 5. Use EDR API to retrieve feature orientated observations from hydrological network data stores, USGS (Issue #01) 
 
-7. Conformance testing, ECMWF (Issue #16)
+6. Conformance testing, ECMWF (Issue #16)
 There was general support for this topic, but no work was done.
 
-7. The remaining Issues #04 - #10 were generic objectives covering the full scope of data query patterns of the EDR API, but divided up acording to expected difficulty.
+7. Explore use of STAC for accessing meteorological data stores, Meteorological Service of Canada (Issue #21)
+This is ongoing work that started after the Sprint days.
+
+8. The remaining Issues #04 - #10 were generic objectives covering the full scope of data query patterns of the EDR API, but divided up acording to expected difficulty.
 *  Point, timeseries at a point, and vertical profile at a point
 *  Polygon and tile (2D)
 *  Polygon in 3D or 4D
@@ -155,7 +158,7 @@ There was general support for this topic, but no work was done.
 *  Trajectory, 2D, 3D or 4D
 *  Corridor, 3D or 4D
 
-Issues arising and ressolved
+Issues arising and resolved
 
 
 Issues outstanding
