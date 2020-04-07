@@ -146,8 +146,31 @@ This is ongoing work. There do not seem to be any fundamental architectural prob
 6. Conformance testing, ECMWF (Issue #16)
 There was general support for this topic, but no work was done.
 
-7. Explore use of STAC for accessing meteorological data stores, Meteorological Service of Canada (Issue #21)
+7. Implement and demonstrate a STAC (Spatio-Temporal Asset Catalog) for accessing meteorological real-time data stores in pygeoapi, Meteorological Service of Canada (Issue #21)   
 This is ongoing work that started after the Sprint days.
+STAC provides a common language to describe a range of geospatial information, so it can more easily be indexed and discovered. A 'spatiotemporal asset' is any file that represents information about the earth captured in a certain space and time.
+While STAC work has been primarily focused on EO imagery, there is value in investigating STAC capability for real-time Numerical Weather Prediction (NWP) data offerings. This would allow for arbitrary hierarchy based on NWP workflow (model runs, forecast hours, forecast variables, etc.) as well as simple, file-based discovery/traversal of same.
+Questions
+•	how would NWP look as a static catalog of (in our case) GRIB2 files?
+•	how would a given STAC implementation for MetOcean compare to OGC API - Records
+•	would a MetOcean STAC profile be valuable?
+Results
+•	implemented a STAC catalog for a (very very small subset) of our Global Deterministic Prediction System (GDPS)
+•	code: https://github.com/geopython/pygeoapi/tree/stac2
+•	deployment: 
+o	root catalog: http://52.170.144.218:8000/stac/nwp/catalog.json
+o	model run: http://52.170.144.218:8000/stac/nwp/00/catalog.json
+o	model run/forecast hour: http://52.170.144.218:8000/stac/nwp/00/000/catalog.json
+o	data: http://52.170.144.218:8000/stac/nwp/00/000/CMC_glb_DEPR_ISBL_750_latlon.15x.15_2020040100_P000.grib2.json
+Observations
+•	successfully tested with stac-validator
+•	data properties are basically GRIB2 metadata
+•	links are initially minimal: we could have links back to related EDR workflows (or OGC API - Coverages, OGC API - Processes)
+•	search is not in scope for STAC Catalog (more OGC API - Records and STAC Catalog)
+Future Work
+•	investigate integration with OGC API - Records and STAC Catalog 
+o	GDPS is a collection level discovery metadata in the scope of OGC API - Records
+o	searching within GDPS would be a link from the OGC API - Records document/search result to the STAC API (essentially searching model runs/forecast hours of data)
 
 8. The remaining Issues #04 - #10 were generic objectives covering the full scope of data query patterns of the EDR API, but divided up acording to expected difficulty.
 *  Point, timeseries at a point, and vertical profile at a point
