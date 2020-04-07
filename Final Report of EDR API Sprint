@@ -190,35 +190,139 @@ o	searching within GDPS would be a link from the OGC API - Records document/sear
 *  Corridor, 3D or 4D
 
 Issues arising and resolved
+Issue #03 and #09 Trajectories
+The EDR API specification uses ISO8601 style of notation to specify dates and times for query parameters. This is very convenient and understandable for users. However, the TRajectory query specifies time as a number of seonds since the Unix epoch. This is specified in the Well Known Text (WKT) standard for defining lines/trajectories by unsing LINESTRING. This makes time into a proper coordinate, though the units are not easily ccomprehended by users,, enabling easier software calculations.
+It was agreed to keep the two different approaches, as both had merits, and disadvantages, and elicit wider feed back from the OGC Members, OAB and the public. A mitigation may be to incorporate an easy to use service to convernt between the two different time representations.
+
+Another consequence of this discussion was that Point was re-named Position, and Polygon re-named as Area.
+
+Issue #0? What are the EDR API resource types?
+
 Issue #18 Streaming of EDR API response media types
 If the data returned in response to a query is small, there is no need for streaming of the results. It may be necessary for large responses, but that is starting to be outside the scope of the EDR API. It was agreed that the EDR API specification would not mention streaming, and it would be an implementation decision as to whether streaming is supported. This decision would obviously be influenced by the choice of supported media type, which may or may not support streaming.
+
+Issue #12 Items view of EDR resources and Issue #15 JSON-Schema for /collections/{collectionID}/items
+The EDR API provides no mechanism for the user to discover available location identifiers (such as ICAO ids) in the metadata. The identifiers are available in the query results, but not in any of the available metadata outputs. What would the JSON-Schema be for these items? E.g:       collections/metar/raw/items?id=KIAD&parametername=icao_id&time=2020-01-31T00:00:00Z/2020-02-01T04:00:00Z .
+If consistent with Features, then collections/metar/raw/items returns the list of items (paged, if there are many) and that the query would look like:  collections/metar/raw/items/KIAD?parametername=icao_id&datetime=2020-01-31T00:00:00Z/2020-02-01T04:00:00Z .
+
+Currently the EDR API "Items" specifies coverageJSON rather than a GeoJSON Feature Collection with valid query parameters for each item in the collection. Can lists of available parameters in geoJSON be exposed? 
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "EPSG",
+    "properties": {
+      "code": 4326,
+      "coordinate_order": [ 1, 0 ]
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "123",
+      "geometry": {
+        "type": "Point",
+       e. "coordinates": [ -105.683442, 36.740017 ]
+      },
+      "properties": {
+        "datetime": "2018-02-12T00:00:00Z/2018-03-18T12:31:12Z",
+        "parametername": [ "param object 1", "param object 2" ],
+        "label": "Something like a site name to use on a link",
+        "uri": "https://feature_identifier"
+      }
+    }
+  ]
+}
+This validates against the geojson schema:
+    id is what goes in /collection/{collectionID}/items/{itemID};
+    datetime follows features;
+    parametername follows the draft spec naming convention;
+    label needed because there has to be a list/link label in the client;
+    uri which could be @id, like json-ld and it should really be a linked data feature ID which 303 redirects if a real-world sampling feature.
+If these extensions are put in the geoJSON FeatureCollection schema, the software sf/gdal outputs: 
+> sf::read_sf("~/Documents/active_code/EDR-API-Sprint/items/test.geojson")
+Simple feature collection with 1 feature and 5 fields
+geometry type:  POINT
+dimension:      XY
+bbox:           xmin: -105.6834 ymin: 36.74002 xmax: -105.6834 ymax: 36.74002
+epsg (SRID):    4326
+proj4string:    +proj=longlat +datum=WGS84 +no_defs
+# A tibble: 1 x 6
+  id    datetime            label                uri           parametername                geometry
+  <chr> <dttm>              <chr>                <chr>         <list>                    <POINT [°]>
+1 123   2018-02-11 18:00:00 Something like a si… https://feat… <chr [2]>        (-105.6834 36.74002)
+The properties schema is here:
+   properties:
+      type: object
+      title: The Properties Schema
+      description: An explanation about the purpose of this instance.
+      default: {}
+      example:
+      -   datetime: 2018-02-12T00:00:00Z/2018-03-18T12:31:12Z
+          label: Something like a site name to use on a link
+          parametername:
+          - param object 1
+          - param object 2
+          uri: https://feature_identifier
+      required:
+        - datetime
+        - parametername
+        - label
+        - uri
+      properties:
+        datetime:
+            type: string
+            title: The Datetime Schema
+            description: An explanation about the purpose of this instance.
+            default: ''
+            example:
+            - 2018-02-12T00:00:00Z/2018-03-18T12:31:12Z
+        parametername:
+            type: array
+            title: The Parametername Schema
+            description: An explanation about the purpose of this instance.
+            default: []
+            items:
+                type: string
+                title: The Items Schema
+                description: An explanation about the purpose of this instance.
+                default: ''
+                example:
+                - param object 1
+                - param object 2
+        label:
+            type: string
+            title: The Label Schema
+            description: An explanation about the purpose of this instance.
+            default: ''
+            example:
+            - Something like a site name to use on a link
+        uri:
+            type: string
+            title: The Uri Schema
+            description: An explanation about the purpose of this instance.
+            default: ''
+            example:
+            - https://feature_identifier
+Cool -- We'll need to clean that up.
 
 
 Issues outstanding
 
-
-
-
-Issue #15 JSON-Schema for /collections/{collectionID}/items
-5
-Issue #12 Items view of EDR resources.
-7
 Issue #11 Groups versus Collections
-5
+The EDR API specification found a need to have Groups of Collections in the API path. In the wider OGC, there is now a discussion of whether APIs could have Collection of Collections . The Sprint agreed to stay with Groups until the wider issue is resolved.
 
+Issue #10 Corridors, 3D or 4D
+Corridors werwe orignally envisaged as a volume encompassed by a constant distance from a line trajectory. The idea of the bottom of a corridor volume being delineated by the earth's surface (or some other surface) was raised. It was agreed to tackle this interesting, practical and difficult problem later.
 
 Recommendations
 
 
-Team formations?  Structured or unstructured?
-Poll of how teams map across 3 larger objectives 
-Plans for next sprint
-Do we need one?
-Metadata
-Security considerations?
-Other geometry types
-pub/sub
-Integration with other APIs (features/coordinates, maps)
-Alignment with decision impact groups like SmartCity, others
-AOB?
+Open Topics for further discussion
+* Do we need one another Sprint?
+* What Metadata frameworks should be used, recommended or mandated?
+* Security considerations?
+* Other geometry types need protoyping and implementing.
+* How should the pub/sub apporach be accommodated?
+* How to integration with other APIs (features/coordinates, maps)
+* How to align with decision impact groups like SmartCity, others
 
