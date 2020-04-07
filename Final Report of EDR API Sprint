@@ -131,7 +131,8 @@ Objectives
 Most attendees, either individuals or teams, identified specific objectives that they would like to acheive. These were:
 
 1. Develop new EDR API server and client, Mark Burgoyne (Issue #20) 
-This is still work in progress, to track and implement the changes to the latest EDI API specification, and also to try out some novel ideas. This addressed the Issue #04, Objective: Point, timeseries at a point, and vertical profile at a point
+Build a simple EDR server to demonstrating Point, Polygon and Items queries against the same collection of data. This is still work in progress, to track and implement the changes to the latest EDI API specification, and also to try out some novel ideas. It will also demonstrate an alternative approach to the proposed application item_id as a unique identifier for a location (i.e. a METAR id, GeoHash key, What Three Words etc) which has a set of data assigned to it.
+This addressed the Issues #04 and #05, Objective: Point, timeseries at a point, vertical profile at a point, and 2D polygon.
 
 2. Demonstrate automatic harvesting of metadata from aggregations of data stores to improve search capabilities for use in conjunction with the EDR API, US NWS (Issue #19 and Issue #14))
 
@@ -139,12 +140,19 @@ This is still work in progress, to track and implement the changes to the latest
 This is the same as Issue #09, Objective: Trajectory, 2D, 3D or 4D. The trajectory query was successfully implemented in all the 2D, 3D and 4D cases, using the EDR API specification proposal to use Well Known Text (WKT) Linestring formats.
 
 4. Explore putting EDR API on ESRI REST API image server, UK Met Office, ESRI (Issue #02 and Issue #17)
-This is ongoing work. There do not seem to be any fundamental architectural problems with possible approaches for the proposed use cases.
+This is ongoing work. There do not seem to be any fundamental architectural problems with possible approaches for the proposed use cases.It iexpected that the queries supported would be for points/timeseries/vertical profiles, and cube/tiles.
 
 5. Use EDR API to retrieve feature orientated observations from hydrological network data stores, USGS (Issue #01) 
 
 6. Conformance testing, ECMWF (Issue #16)
-There was general support for this topic, but no work was done.
+There was general support for this topic, in particular, for the returned content of the payload from a specific query, but no work was done.
+
+OGC API Features has a conformance test suite, written to be modular, and presumably, some of this will be shared with an OGC API Common test suite.
+
+Conformance tests for the returned payload is a bit harder. 
+* XML has validating XML schemas and Schematron rules. 
+* GeoJSON has a clear standard to test against. For the payload, JSON schema is nowhere near as rigorous as XML schema. 
+* CoverageJSON is well defined in the original work done by Jon Blower and Maik Reichardt at Reading University, and the process to agree an OGC standard for the structure of CoverageJSON has started. See the repo at https://github.com/opengeospatial/CoverageJSON.
 
 7. Implement and demonstrate a STAC (Spatio-Temporal Asset Catalog) for accessing meteorological real-time data stores in pygeoapi, Meteorological Service of Canada (Issue #21)   
 This is ongoing work that started after the Sprint days.
@@ -182,13 +190,14 @@ o	searching within GDPS would be a link from the OGC API - Records document/sear
 *  Corridor, 3D or 4D
 
 Issues arising and resolved
+Issue #18 Streaming of EDR API response media types
+If the data returned in response to a query is small, there is no need for streaming of the results. It may be necessary for large responses, but that is starting to be outside the scope of the EDR API. It was agreed that the EDR API specification would not mention streaming, and it would be an implementation decision as to whether streaming is supported. This decision would obviously be influenced by the choice of supported media type, which may or may not support streaming.
 
 
 Issues outstanding
 
 
 
-Issue #18 Streaming of EDR API response media types
 
 Issue #15 JSON-Schema for /collections/{collectionID}/items
 5
