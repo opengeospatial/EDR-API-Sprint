@@ -119,7 +119,7 @@ Background information was supplied in a Slide presentation https://docs.google.
 Also, at the beginning and end of each working day, briefing sessions were held on GoToMeeting to present work done, and to discuss in more depth any issues and their resolutions. Sessions were chosen to enable the different time zones to take part.
 
 Objectives
-Most attendees, either individuals or teams, identified specific objectives that they would like to acheive. These were:
+Most attendees, either individuals or teams, identified specific objectives that they would like to achieve. These were:
 
 1. Develop new EDR API server and client, Mark Burgoyne (Issue #20) 
 Develop a simple EDR server to demonstrate Point, Polygon and Items queries against the same Collection of data. This is still work in progress, to track and implement the changes to the latest EDI API specification, and also to try out novel ideas. It will also demonstrate an alternative approach to the proposed application item_id as a unique identifier for a location (i.e. a METAR id, GeoHash key, WhatThreeWords, etc) which has a set of data assigned to it.
@@ -231,6 +231,8 @@ Should bounding boxes for a query, in 4D, be specified by ranges of values or co
 there was no disagreement that there will be no polyhedra or polytopes (complex multidimensional polygons, rather than just 'extruded' 2D polygons. An extruded 2D polygon can be called a 'prism'.
 
 Issue #0? What are the EDR API resource types?
+this was the usual semantic question. It was agreed that the intial resource was a persistent, dense data store. The queries against it were Discrete Sampling Geometries sampling the data store, and were transient, but could be made a persistent resource if required by another service. [The Research Data Alliance, RDA, recommends a query store in its Best Practice Recommendations for citing dynamic data.] the returned data paylaod is also a transient resource, which also could be made persistent.
+It was agreed to add words to this affect in the EDR API candidate standard.
 
 Issue #18 Streaming of EDR API response media types
 If the data returned in response to a query is small, there is no need for streaming of the results. It may be necessary for large responses, but that is starting to be outside the scope of the EDR API. It was agreed that the EDR API specification would not mention streaming, and it would be an implementation decision as to whether streaming is supported. This decision would obviously be influenced by the choice of supported media type, which may or may not support streaming.
@@ -251,7 +253,7 @@ Currently the EDR API "Items" specifies coverageJSON rather than a GeoJSON Featu
   },
   "features": [
     {
-      "type": "Feature",
+      "type": "Feature",;
       "id": "123",
       "geometry": {
         "type": "Point",
@@ -353,13 +355,15 @@ Observers, from outside the Sprint, have raised some substantive questions, incl
 
 Recommendations
 
+??
 
 Open Topics for further discussion
 * Do we need one another Sprint?
 * What Metadata frameworks should be used, recommended or mandated?
 * Security considerations?
 * Other geometry types need protoyping and implementing.
-* How should the pub/sub apporach be accommodated?
-* How to integration with other APIs (features/coordinates, maps)
+* How should the pub/sub approach be accommodated?
+* How to integrate with other APIs (features/coordinates, maps)
 * How to align with decision impact groups like SmartCity, others
 
+Annexes?
