@@ -365,17 +365,21 @@ Corridors were originally envisaged as a volume defined by a surface of constant
 Other Issues
 Observers, from outside the Sprint, have raised some substantive questions, including about interpretation and implementation of vertical coordinates in the EDR API. These will be raised and addressed in the EDR API Standard WG.
 
-# Recommendations
+# Recommendations and Next Steps
 
-??
+Recommended Topics for further discussion
 
-Open Topics for further discussion
-* Do we need one another Sprint?
-* What Metadata frameworks should be used, recommended or mandated?
-* Security considerations?
-* Other geometry types need protoyping and implementing.
-* How should the pub/sub approach be accommodated?
-* How to integrate with other APIs (features/coordinates, maps)
-* How to align with decision impact groups like SmartCity, others
+  * What Metadata frameworks should be used, recommended or mandated?
+  * Security considerations.  This needs to be coordinated with Andreas
+  * Test other sampling geometry types
+  * incorporate a pub/sub mechanism with the EDR API specification
+  * hnvestigate How to integrate with other APIs (features/coordinates, maps)
+  * Investingate how to align with decision impact groups like SmartCity, others
+  
+  Next Steps for EDR API Specification
+    * Generate Enginnering Report on Sprint
+    * Finalize updates to current specification.  Update documentation
+    * Start adoption process
+  
 
 ## Annexes?
