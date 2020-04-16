@@ -377,6 +377,7 @@ Recommended Topics for further discussion
   * Investingate how to align with decision impact groups like SmartCity, others
   
   Next Steps for EDR API Specification
+  
     * Generate Enginnering Report on Sprint
     * Finalize updates to current specification.  Update documentation
     * Start adoption process
