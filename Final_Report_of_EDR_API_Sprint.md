@@ -161,7 +161,7 @@ My next steps will be to connect the dots from how I create metadata in the aggr
 * data should be WGS84 for this implementation, therefore NAM data would need to be converted to this CRS.
 
 ### Future work:
-* test other national weather service grib data; 
+* test other national weather services' Grib data; 
 * optimize the code to solve memory issue.
 
 3. Implement Trajectory queries against typhoon/hurricane data. Wuhan University (Issue #03)
