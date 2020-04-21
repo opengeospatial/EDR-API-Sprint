@@ -224,8 +224,8 @@ Future Work
 
 ## Issues arising and resolved
 Issue #03 and #09 Trajectories: which time specification?
-The EDR API specification uses ISO8601 style of notation to specify dates and times for query parameters. This is very convenient and understandable for users. However, the Trajectory query specifies time as a number of seonds since the Unix epoch. This is specified in the Well Known Text (WKT) standard for defining lines/trajectories by uning LINESTRING. This makes time into a proper coordinate, enabling easier software calculations, though the units are not easily comprehended by users.
-It was agreed to keep the two different approaches, as both had merits, and disadvantages, and elicit wider feed back from the OGC Members, OAB and the public. A mitigation may be to incorporate an easy to use service to convernt between the two different time representations.
+The EDR API specification uses ISO8601 style of notation to specify dates and times for query parameters. This is very convenient and understandable for users. However, the Trajectory query specifies time as a number of seconds since the Unix epoch. This is specified in the Well Known Text (WKT) standard for defining lines/trajectories by using LINESTRING. This makes time into a proper coordinate, enabling easier software calculations, though the units are not easily comprehended by users.
+It was agreed to keep the two different approaches, as both had merits, and disadvantages, and elicit wider feed back from the OGC Members, OAB and the public. A mitigation may be to incorporate an easy to use service to convert between the two different time representations.
 
 Issue #04 Point, timeseries at a point, and vertical profile at a point: which combinations? 
 Would the current EDR API specification allow simultaneously both a time series and a vertical profile at a point? I.e. A 2D array of values would be returned. At present, the Point query only allows a time series at a point or a vertical profile at a point, but not both. It was agreed to stay with these minimal cases. The general 2D vertical timeseries is not widely used outside of meteorology, where it is known as a Hovmöller diagram. 
@@ -235,10 +235,10 @@ Another consequence of these discussions was that Point was re-named Position, a
 Issues #08 and #06 and #05 Cube/Tile, Polygon in 3D or 4D, Polygon/Tile in 2D: which bounding box styles?
 Should bounding boxes for a query, in 4D, be specified by ranges of values or coordinates of the corners? The consensus was that ranges are more natural for time and vertical coordinates.  This is then the same as specified 2D Polygons in WKT.
 
-there was no disagreement that there will be no polyhedra or polytopes (complex multidimensional polygons, rather than just 'extruded' 2D polygons. An extruded 2D polygon can be called a 'prism'.
+There was no disagreement that there will be no polyhedra or polytopes (complex multidimensional polygons, rather than just 'extruded' 2D polygons. An extruded 2D polygon can be called a 'prism'.
 
 Issue #0? What are the EDR API resource types?
-this was the usual semantic question. It was agreed that the intial resource was a persistent, dense data store. The queries against it were Discrete Sampling Geometries sampling the data store, and were transient, but could be made a persistent resource if required by another service. [The Research Data Alliance, RDA, recommends a query store in its Best Practice Recommendations for citing dynamic data.] the returned data paylaod is also a transient resource, which also could be made persistent.
+This was the usual semantic question. It was agreed that the intial resource was a persistent, dense data store. The queries against it were Discrete Sampling Geometries sampling the data store, and were transient, but could be made a persistent resource if required by another service. [The Research Data Alliance, RDA, recommends a query store in its Best Practice Recommendations for citing dynamic data.] the returned data paylaod is also a transient resource, which also could be made persistent.
 It was agreed to add words to this affect in the EDR API candidate standard.
 
 Issue #18 Streaming of EDR API response media types
@@ -363,7 +363,7 @@ Cool -- We'll need to clean that up.
 # Issues outstanding
 
 Issue #11 Groups versus Collections
-The EDR API specification found a need to have Groups of Collections in the API path. In the wider OGC, there is now a discussion of whether APIs could have Collection of Collections . The Sprint agreed to stay with Groups until the wider issue is resolved.
+The EDR API specification found a need to have Groups of Collections in the API path. In the wider OGC, there is now a discussion of whether APIs could have Collection of Collections. The Sprint agreed to stay with Groups until the wider issue is resolved.
 
 Issue #10 Corridors, 3D or 4D
 Corridors were originally envisaged as a volume defined by a surface of constant distance from a line trajectory. The idea of the bottom of a corridor volume being delineated by the earth's surface (or some other surface) was raised. It was agreed to tackle this interesting, practical and difficult problem later.
@@ -376,11 +376,11 @@ Observers, from outside the Sprint, have raised some substantive questions, incl
 Recommended Topics for further discussion
 
   * What Metadata frameworks should be used, recommended or mandated?
-  * Security considerations.  This needs to be coordinated with Andreas
+  * Security considerations.  This needs to be coordinated with Andreas Mattheus
   * Test other sampling geometry types
   * incorporate a pub/sub mechanism with the EDR API specification
   * hnvestigate How to integrate with other APIs (features/coordinates, maps)
-  * Investingate how to align with decision impact groups like SmartCity, others
+  * Investigate how to align with decision impact groups like SmartCity, others
   
   Next Steps for EDR API Specification
   
