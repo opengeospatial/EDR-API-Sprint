@@ -388,7 +388,7 @@ Observers, from outside the Sprint, have raised some substantive questions, incl
 
   * Contribute EDR API definition of a Collection to the wider OGC debate.
   * Decide what Metadata frameworks should be used, recommended or mandated?
-  * Security considerations.  This needs to be coordinated with ?.
+  * Security considerations.  This needs to be coordinated with other OGC API groups and the Security Domain Working Group.
   * Test other sampling geometry types.
   * Continue to investigate how to integrate with other APIs (features/coordinates, maps)
   * Incorporate a pub/sub mechanism with a later version of the EDR API specification.
