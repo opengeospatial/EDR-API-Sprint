@@ -1,5 +1,9 @@
 # Summary
-TBD
+An Open Geospatial Consortium (OGC) Environmental Data Retrieval (EDR) Application Programming Interface (API) development sprint was held virtually from March 18-20, 2020. This Sprint was to advance the EDR API candidate standard specification.
+
+The idea of the EDR API is to enable end users and web developers to conveniently and easily retrieve required data from big data stores, using current web technologies and a significantly reduced learning curve, with uneccessary details intially hidden from the service endpoint. The API queries can be considered discrete sampling geometries into the non-sparse relatively persistent datastore.
+
+The Sprint was considered very successful with clarifications and enhancements of the specification agreed. Commonality and differences with the other OGC APIs under development were identified and further work recommended.
 
 # Introduction
 A Hackathon/Sprint was organised under the auspices of OGC to progress development of the Environmental Data Retrieval API (EDR-API). It was to be hosted by the US National Weather Service near Washington DC, from 18-20 March 2020. Unfortunately, because of the global health crisis, the physical face-to-face meeting was cancelled. It was decided to hold a virtual Hackathon/Sprint, more or less keeping to US Washington time (Eastern Daylight savings Time) and to communicate using GoToMeeting teleconferencing facilitles of OGC, email and GitHub.
@@ -8,9 +12,9 @@ The EDR-API is intended to allow a small amount of data, as required, to be retr
 
 The API is being developed by the OGC EDR API Standard Working Group against the following documents:
 
-- [charter](https://github.com/opengeospatial/Environmental-Data-Retrieval-API/blob/master/EnvironmentalDataRetrievalAPI-SWG-Charter.adoc)
-- [candidate standard](https://github.com/opengeospatial/Environmental-Data-Retrieval-API/blob/master/candidate-standard/EDR-candidate-specification.adoc)
-- [background reading material](https://github.com/opengeospatial/Environmental-Data-Retrieval-API)
+- [Charter](https://github.com/opengeospatial/Environmental-Data-Retrieval-API/blob/master/EnvironmentalDataRetrievalAPI-SWG-Charter.adoc)
+- [Candidate standard](https://github.com/opengeospatial/Environmental-Data-Retrieval-API/blob/master/candidate-standard/EDR-candidate-specification.adoc)
+- [Background reading material](https://github.com/opengeospatial/Environmental-Data-Retrieval-API)
 
 The first draft of the candidate standard was based on the OGC API - Features, Part 1: Core and what is now OGC API - Common, Part 1: Core following a hackathon in London during June 2019. Both of these standards follow OGC current policy on API development and are consistent with OpenAPI Version 3.
 
@@ -39,7 +43,7 @@ There were about two dozen attendees, from North America, the far East, and Euro
 - Tom Kralidis, Meteorological Service of Canada
 - Stephan Siemen, ECMWF 
 
-# Purpose:
+# Purpose
 The EDR API Sprint was to provide feedback based on the current EDR API candidate specification, and assess the compatibility with the [OGC API - Features - Part 1: Core](https://github.com/opengeospatial/ogcapi-features/tree/master/core/standard) standard and the in-progress [OGC API - Common - Part 1: Core standard](https://github.com/opengeospatial/oapi_common/tree/March-2020-Updates/standard).
 
 # Background
@@ -51,7 +55,7 @@ Many of the existing services have powerful query capabilities, however some are
 
 Because some of the existing services have relatively complex APIs, there is a steep learning curve and they may be difficult to integrate into production environments. 
 
-# EDR API approach:
+# EDR API approach
 By using simple query patterns 'sampling' into a large datastore where the data publisher is responsible for transforming and supplying the data, the user only defines area of interest in time and space, using Well Known Text (WKT) making the data simple to consume.
 Handle and combine both “feature” and “coverage” data sources
 
@@ -62,7 +66,7 @@ Previous experiments, prototypes, experiences and production implementations giv
 The EDR API is intended to be part of a proposed family of OGC APIs that are complementary to existing OGC Web-based geospatial services.
 These new APIs are intended for a different audience, web developers rather than geospatial specialists, and serve as basic introduction to OGC services thus lowering the bar for entry to using OGC web services.
 
-## Goals
+# Sprint Goals
 These were developed in meetings of the EDR API Standard WG and the Met Ocean Domain WG, with other input from OGC staff and Members:
 * Build implementations of the EDR API service based on existing data stores, both client and server-sides;
 * Develop client-side value-added applications that consume data from prototype implementations of EDR API;
@@ -70,7 +74,7 @@ These were developed in meetings of the EDR API Standard WG and the Met Ocean Do
 
 The goals were refined by the working groups into these more specific objectives and deliverables:
 
-## Objectives:
+## Objectives
 * Verify and validate requirements and methods for the Query and Filter operations of the EDR API;
 * Prototype rapidly other geometry types for the EDR API (partitioned grids or tiles, vertical profiles and/or trajectories/corridors);
 * Develop client-side value-added applications that consume data from UK Met Office and US NWS prototype EDR API implementations;
@@ -85,7 +89,7 @@ The goals were refined by the working groups into these more specific objectives
 
 These goals, objectives and deliverables were all discussed by the attendees prior to the meeting and in the opening session of the Sprint.
 
-## Use Cases
+# Use Cases
 The Sprint was introduced by a quick review of the EDR API use cases at https://github.com/opengeospatial/Environmental-Data-Retrieval-API/tree/master/use-cases . These included:
 * Get Parameters for a Point across a Timeseries
 * Obtain or view a forecast time series of a parameter at a point
@@ -93,8 +97,8 @@ The Sprint was introduced by a quick review of the EDR API use cases at https://
 * Show Weather Radar data timeseries
 * Obtain or view Air Traffic Hazards and Restrictions for an Area
 
-## Existing Data and Implementations
-Implementations of EDR API:
+# Existing Data, Implementations and Demos
+## Implementations of EDR API
 * US NWS:https://data-api.mdl.nws.noaa.gov/EDR-API
 Available data offered (Metars, Tafs, Global Forecast System(GFS), North American Mesoscale model (NAM), National Digital Forecast Database (NDFD))
 
@@ -104,32 +108,32 @@ Available data offered (Metars, UK Global Model, US GFS, US NDFD, Open Streetmap
 ## Data Sources
 * Amazon data sources: https://registry.opendata.aws/?search=tags:gis,earth%20observation,mapping,meteorological,environmental,transportation
 
-Demonstrations 
-1. Automated aggregation of metadata from collections (3D, 4D, 5D)
+## Demonstrations 
+### 1. Automated aggregation of metadata from collections (3D, 4D, 5D)
 This creates collections of parameters (that have common dimensions) from operational data stores, and outputs in JSON which is used to convert the original dataset to zarr. Each zarr data store represents a specific collection. With the parameters grouped by common dimensions, more complex queries than EDR API can be made. Demo at https://github.com/ShaneMill1/edr-automation .
 
-2. Demonstration of client side APIs (single and multi-domain feature extractions)
+### 2. Demonstration of client side APIs (single and multi-domain feature extractions)
 Uses the EDR API to access time series at a point for:
 * Observations from a point cloud – latest airfield obs (Metars);
 * Gridded forecast current data from US NWS (GFS) using https://data-api.mdl.nws.noaa.gov/EDR-CLIENT-API ;
 * Gridded forecast data from 2 day old UK Met Office Global Unified Model using http://labs.metoffice.gov.uk/edr/ .
 Demo at http://labs.metoffice.gov.uk/map/wotwdemo/ .
 
-## Working Methods
+# Working Methods
 A GitHub repository was established at https://github.com/opengeospatial/EDR-API-Sprint . A branch of the EDR API Candidate standard was also created at https://opengeospatial.github.io/EDR-API-Sprint/edr-api.html so that changes could readily be made if required. Attendees also raised Issues in the Sprint repository to indicate their objectives, and any issues encountered. Discussions were then followed on the Issues tabs and tagged according to their content.
 
 Background information was supplied in a Slide presentation https://docs.google.com/presentation/d/1vU8O7dnkima9Vch_T0ebECV5RRjSw-8Kuox15gN2Z4k/edit?usp=sharing and wiki pages at https://github.com/opengeospatial/EDR-API-Sprint/wiki .
 
 Also, at the beginning and end of each working day, briefing sessions were held on GoToMeeting to present work done, and to discuss in more depth any issues and their resolutions. Sessions were chosen to enable the different time zones to take part.
 
-## Objectives
+## Specific Objectives
 Most attendees, either individuals or teams, identified specific objectives that they would like to achieve. These were:
 
-1. Develop new EDR API server and client, Mark Burgoyne (Issue #20) 
+### 1. Develop new EDR API server and client, Mark Burgoyne (Issue #20) 
 Develop a simple EDR server to demonstrate Point, Polygon and Items queries against the same Collection of data. This is still work in progress, to track and implement the changes to the latest EDI API specification, and also to try out novel ideas. It will also demonstrate an alternative approach to the proposed application item_id as a unique identifier for a location (i.e. a METAR id, GeoHash key, WhatThreeWords, etc) which has a set of data assigned to it.
 This addressed Issues #04 and #05: Point, timeseries at a point, vertical profile at a point, and 2D polygon.
 
-2. Demonstrate automatic harvesting of metadata from aggregations of data stores to improve search capabilities for use with the EDR API, US NWS (Issue #19 and Issue #14))
+### 2. Demonstrate automatic harvesting of metadata from aggregations of data stores to improve search capabilities for use with the EDR API, US NWS (Issue #19 and Issue #14))
 Extend the automated aggregation of metadata from Collections (3D, 4D, 5D) by storing the output from a forecast model run as a concatenation of binary GRIB files, then process as xarray dataset with pynio and extract metadata (parameter ID determined by pynio, long name, level type, dimensions) and put in a pandas dataframe. The dataframe creates a map between dimension names and dimension values. Parameters that have the same dimensions are grouped. The metadata is output in JSON. The original dataset is converted to zarr using the collection JSON. This approach will enable more complex queries than just EDR API. The implementation is: https://data-api.mdl.nws.noaa.gov/EDR-API/groups/US_Models?outputFormat=application%2Fjson based on NAM and GFS GRIB data.
 The aggregation will be extended to other national weather service data source, or other file types such as HDF5, NetCDF, etc.
   * France on AWS at https://registry.opendata.aws/meteo-france-models/
@@ -153,28 +157,28 @@ https://data-api.mdl.nws.noaa.gov/EDR-API/csw?service=CSW&version=2.0.2&request=
 My next steps will be to connect the dots from how I create metadata in the aggregation of collections software and incorporate that metadata into these services.
     let's continue the discussion on what/how the formal metadata would look to serve as part of a CSW instance (Dublin Core, ISO, etc.). This will also give us an opportunity to investigate the OGC API - Records work (disclosure: I'm part of this SWG and working on an implementation). now an issue in the EDR SWG github: opengeospatial/Environmental-Data-Retrieval-API#40
 
-### Outcomes:
+#### Outcomes
 * Successfully used aggregation software to ingest GFS 1 Deg, 1/2 Deg, 1/4 Deg, NAM 32km, 12km, and Meteo-France's Arpege 1/2 Deg data.
 * Identified memory problem when creating zarr datastores for higher resolution data.
 
-### Observations:
+#### Observations
 * data should be WGS84 for this implementation, therefore NAM data would need to be converted to this CRS.
 
-### Future work:
+#### Future work
 * test other national weather services' Grib data; 
 * optimize the code to solve memory issue.
 
-3. Implement Trajectory queries against typhoon/hurricane data. Wuhan University (Issue #03)
+### 3. Implement Trajectory queries against typhoon/hurricane data. Wuhan University (Issue #03)
 This is the same as Issue #09, Objective: Trajectory, 2D, 3D or 4D. The trajectory query was successfully implemented in all the 2D, 3D and 4D cases, using the EDR API specification proposal to use Well Known Text (WKT) Linestring formats.
 
-4. Explore putting EDR API on ESRI REST API image server, UK Met Office, ESRI (Issue #02 and Issue #17)
+### 4. Explore putting EDR API on ESRI REST API image server, UK Met Office, ESRI (Issue #02 and Issue #17)
 This is ongoing work. There do not seem to be any fundamental architectural problems with possible approaches for the proposed use cases.It iexpected that the queries supported would be for points/timeseries/vertical profiles, and cube/tiles.
 
 The main aim of this work is to show how the EDR "Pattern" may be "mapped" onto a proprietary REST API , such as ESRI's Arc Image Server. The output from this work will be a document outlining the issues that are brought to light and a very simple prototype consisting of a simple proxy server that uses the EDR API and translates into the Image Server REST API
 
-5. Use EDR API to retrieve feature orientated observations from hydrological network data stores, USGS (Issue #01) 
+### 5. Use EDR API to retrieve feature orientated observations from hydrological network data stores, USGS (Issue #01) 
 
-6. Conformance testing, ECMWF (Issue #16)
+### 6. Conformance testing, ECMWF (Issue #16)
 There was general support for this topic, in particular, for the returned content of the payload from a specific query, but no work was done.
 
 OGC API Features has a conformance test suite, written to be modular, and presumably, some of this will be shared with an OGC API Common test suite.
@@ -184,7 +188,7 @@ Conformance tests for the returned payload is a bit harder.
 * GeoJSON has a clear standard to test against. For the payload, JSON schema is nowhere near as rigorous as XML schema. 
 * CoverageJSON is well defined in the original work done by Jon Blower and Maik Reichardt at Reading University, and the process to agree an OGC standard for the structure of CoverageJSON has started. See the repo at https://github.com/opengeospatial/CoverageJSON.
 
-7. Implement and demonstrate a STAC (Spatio-Temporal Asset Catalog) for accessing meteorological real-time data stores in pygeoapi, Meteorological Service of Canada (Issue #21)   
+### 7. Implement and demonstrate a STAC (Spatio-Temporal Asset Catalog) for accessing meteorological real-time data stores in pygeoapi, Meteorological Service of Canada (Issue #21)   
 This is ongoing work that started after the Sprint days.
 STAC provides a common language to describe a range of geospatial information, so it can more easily be indexed and discovered. A 'spatiotemporal asset' is any file that represents information about the earth captured in a certain space and time.
 While STAC work has been primarily focused on EO imagery, there is value in investigating STAC capability for real-time Numerical Weather Prediction (NWP) data offerings. This would allow for arbitrary hierarchy based on NWP workflow (model runs, forecast hours, forecast variables, etc.) as well as simple, file-based discovery/traversal of same.
@@ -213,7 +217,7 @@ Future Work
   - GDPS is a collection level discovery metadata in the scope of OGC API - Records
   - searching within GDPS would be a link from the OGC API - Records document/search result to the STAC API (essentially searching model runs/forecast hours of data)
 
-8. The remaining Issues #04 - #10 were generic objectives covering the full scope of data query patterns of the EDR API, but divided up acording to expected difficulty.
+### 8. The remaining Issues #04 - #10 were generic objectives covering the full scope of data query patterns of the EDR API, but divided up acording to expected difficulty.
   *  Point, timeseries at a point, and vertical profile at a point
   *  Polygon and tile (2D)
   *  Polygon in 3D or 4D
@@ -222,29 +226,29 @@ Future Work
   *  Trajectory, 2D, 3D or 4D
   *  Corridor, 3D or 4D
 
-## Issues arising and resolved
-Issue #03 and #09 Trajectories: which time specification?
+# Issues arising and resolved
+### Issue #03 and #09 Trajectories: which time specification?
 The EDR API specification uses ISO8601 style of notation to specify dates and times for query parameters. This is very convenient and understandable for users. However, the Trajectory query specifies time as a number of seconds since the Unix epoch. This is specified in the Well Known Text (WKT) standard for defining lines/trajectories by using LINESTRING. This makes time into a proper coordinate, enabling easier software calculations, though the units are not easily comprehended by users.
 It was agreed to keep the two different approaches, as both had merits, and disadvantages, and elicit wider feed back from the OGC Members, OAB and the public. A mitigation may be to incorporate an easy to use service to convert between the two different time representations.
 
-Issue #04 Point, timeseries at a point, and vertical profile at a point: which combinations? 
+### Issue #04 Point, timeseries at a point, and vertical profile at a point: which combinations? 
 Would the current EDR API specification allow simultaneously both a time series and a vertical profile at a point? I.e. A 2D array of values would be returned. At present, the Point query only allows a time series at a point or a vertical profile at a point, but not both. It was agreed to stay with these minimal cases. The general 2D vertical timeseries is not widely used outside of meteorology, where it is known as a Hovmöller diagram. 
 
 Another consequence of these discussions was that Point was re-named Position, and Polygon re-named as Area.
 
-Issues #08 and #06 and #05 Cube/Tile, Polygon in 3D or 4D, Polygon/Tile in 2D: which bounding box styles?
+### Issues #08 and #06 and #05 Cube/Tile, Polygon in 3D or 4D, Polygon/Tile in 2D: which bounding box styles?
 Should bounding boxes for a query, in 4D, be specified by ranges of values or coordinates of the corners? The consensus was that ranges are more natural for time and vertical coordinates.  This is then the same as specified 2D Polygons in WKT.
 
 There was no disagreement that there will be no polyhedra or polytopes (complex multidimensional polygons, rather than just 'extruded' 2D polygons. An extruded 2D polygon can be called a 'prism'.
 
-Issue #0? What are the EDR API resource types?
+### Issue #0? What are the EDR API resource types?
 This was the usual semantic question. It was agreed that the intial resource was a persistent, dense data store. The queries against it were Discrete Sampling Geometries sampling the data store, and were transient, but could be made a persistent resource if required by another service. [The Research Data Alliance, RDA, recommends a query store in its Best Practice Recommendations for citing dynamic data.] the returned data paylaod is also a transient resource, which also could be made persistent.
 It was agreed to add words to this affect in the EDR API candidate standard.
 
-Issue #18 Streaming of EDR API response media types
+### Issue #18 Streaming of EDR API response media types
 If the data returned in response to a query is small, there is no need for streaming of the results. It may be necessary for large responses, but that is starting to be outside the scope of the EDR API. It was agreed that the EDR API specification would not mention streaming, and it would be an implementation decision as to whether streaming is supported. This decision would obviously be influenced by the choice of supported media type, which may or may not support streaming.
 
-Issue #12 Items view of EDR resources and Issue #15 JSON-Schema for /collections/{collectionID}/items
+### Issue #12 Items view of EDR resources and Issue #15 JSON-Schema for /collections/{collectionID}/items
 The EDR API provides no mechanism for the user to discover available location identifiers (such as ICAO ids) in the metadata. The identifiers are available in the query results, but not in any of the available metadata outputs. What would the JSON-Schema be for these items? E.g:       collections/metar/raw/items?id=KIAD&parametername=icao_id&time=2020-01-31T00:00:00Z/2020-02-01T04:00:00Z .
 If consistent with Features, then collections/metar/raw/items returns the list of items (paged, if there are many) and that the query would look like:  collections/metar/raw/items/KIAD?parametername=icao_id&datetime=2020-01-31T00:00:00Z/2020-02-01T04:00:00Z .
 
@@ -362,31 +366,37 @@ Cool -- We'll need to clean that up.
 
 # Issues outstanding
 
-Issue #11 Groups versus Collections
+### Issue #11 Groups versus Collections
 The EDR API specification found a need to have Groups of Collections in the API path. In the wider OGC, there is now a discussion of whether APIs could have Collection of Collections. The Sprint agreed to stay with Groups until the wider issue is resolved.
 
-Issue #10 Corridors, 3D or 4D
+### Issue #10 Corridors, 3D or 4D
 Corridors were originally envisaged as a volume defined by a surface of constant distance from a line trajectory. The idea of the bottom of a corridor volume being delineated by the earth's surface (or some other surface) was raised. It was agreed to tackle this interesting, practical and difficult problem later.
 
-Other Issues
+### Other Issues
 Observers, from outside the Sprint, have raised some substantive questions, including about interpretation and implementation of vertical coordinates in the EDR API. These will be raised and addressed in the EDR API Standard WG.
 
 # Recommendations and Next Steps
 
-Recommended Topics for further discussion
+  * WKT linestring format to be used for multi-dimensional geometries.
+  * Some query names were changed (Polygon -> Area, Point -> Position).
+  * The specification will not mention streaming, because it is an implementation detail.
+  * Agreed that we would allow named "locations" (now Positions).
+  * Agreed that named "times" seem to be a good analogy to named "locations", such as 'Latest'.
+  * Groups vs Collections were explored and the current working definition of Collections remains.
 
-  * What Metadata frameworks should be used, recommended or mandated?
-  * Security considerations.  This needs to be coordinated with Andreas Mattheus
-  * Test other sampling geometry types
-  * incorporate a pub/sub mechanism with the EDR API specification
-  * hnvestigate How to integrate with other APIs (features/coordinates, maps)
-  * Investigate how to align with decision impact groups like SmartCity, others
-  
-  Next Steps for EDR API Specification
-  
-    * Generate Enginnering Report on Sprint
-    * Finalize updates to current specification.  Update documentation
-    * Start adoption process
-  
+## Recommended Topics for further discussion
 
-## Annexes?
+  * Contribute EDR API definition of a Collection to the wider OGC debate.
+  * Decide what Metadata frameworks should be used, recommended or mandated?
+  * Security considerations.  This needs to be coordinated with ?.
+  * Test other sampling geometry types.
+  * Continue to investigate how to integrate with other APIs (features/coordinates, maps)
+  * Incorporate a pub/sub mechanism with a later version of the EDR API specification.
+  * Investigate how to align with decision  impact groups like SmartCity, others
+
+## Next Steps for EDR API Specification
+  
+  * Generate Engineering Report on Sprint.
+  * Finalize updates to current specification.  
+  * Update documentation.    
+  * Start wider consultation processes inside and outside OGC. 
