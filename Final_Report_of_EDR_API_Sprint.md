@@ -1,5 +1,5 @@
 # Summary
-An Open Geospatial Consortium (OGC) Environmental Data Retrieval (EDR) Application Programming Interface (API) development sprint was held virtually from March 18-20, 2020. This Sprint was to advance the EDR API candidate standard specification.
+An Open Geospatial Consortium (OGC) Environmental Data Retrieval (EDR) Application Programming Interface (API) development sprint was held virtually from March 18-20, 2020. This Sprint was to advance the EDR API candidate standard.
 
 The idea of the EDR API is to enable end users and web developers to conveniently and easily retrieve required data from big data stores, using current web technologies and a significantly reduced learning curve, with uneccessary details intially hidden from the service endpoint. The API queries can be considered discrete sampling geometries into the non-sparse relatively persistent datastore.
 
