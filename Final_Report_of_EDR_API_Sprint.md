@@ -388,12 +388,13 @@ Observers, from outside the Sprint, have raised some substantive questions, incl
 ## Recommended Topics for further discussion
 
   * Contribute EDR API definition of a Collection to the wider OGC debate.
-  * Decide what Metadata frameworks should be used, recommended or mandated?
+  * Decide what Metadata frameworks should be used, recommended or mandated and expand metadata offerings
+  * Determine workflows and search metadata to integrate with OGC API - Records
   * Security considerations.  This needs to be coordinated with other OGC API groups and the Security Domain Working Group.
   * Test other sampling geometry types.
   * Continue to investigate how to integrate with other APIs (features/coordinates, maps)
   * Incorporate a pub/sub mechanism with a later version of the EDR API specification.
-  * Investigate how to align with decision  impact groups like SmartCity, others
+  * Investigate how to align with decision impact groups like SmartCity, others
 
 ## Next Steps for EDR API Specification
   
