@@ -1,0 +1,17 @@
+[[Overview]]
+== Overview
+
+[NOTE]
+.Instructions
+====
+This 4-overview.adoc file helps the reader to better understand the various sections of the ER. It should be written like an extended table of contents.
+====
+
+Section 5 introduces the Environmental Data Retrieval Sprint by describing the background, the EDR API approach, use cases, data resources, implementations, and the demonstrations. The section also presents a list of the organizations represented by the participants.
+
+Section 6 describes the working methods of the Sprint, and each of the specific objectives that were involved in the Sprint.
+
+Section 7 presents the issues arising and resolved, as well as the issues outstanding.
+
+Section 8 provides the recommended topics for further discussion and the next steps for the EDR API specification.
+

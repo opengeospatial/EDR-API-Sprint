@@ -1,0 +1,18 @@
+[[references]]
+== References
+
+The following normative documents are referenced in this document.
+
+.NOTE: Only normative standards are referenced here, e.g. OGC, ISO or other SDO standards. All other references are listed in the bibliography. 
+
+* Open API Initiative: OpenAPI Specification 3.0.3
+* IETF RFC2616, HTTP/1.1
+* IETF RFC 2818, HTTP Over TLS
+* IETF RFC 3339, Date and Time on the Internet: Timestamps
+* IETF RFC 3896, Uniform Resource Identifier (URI): Generic Syntax
+* IETF RFC 7946, The GeoJSON Format
+* IETF RFC 8288, Web Linking
+* IETF RFC 2413, Dublin Core Metadata for Resource Discovery
+* W3C: HTML5, W3C Recommendation
+* Simple Feature Access - Part 1: Common Architecture
+* Well-Known Text representation of Coordinate Reference Systems
