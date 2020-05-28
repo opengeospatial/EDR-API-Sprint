@@ -1,0 +1,41 @@
+== Recommendations and Next Steps
+
+* WKT LineString format to be used for multi-dimensional geometries
+
+* Some query names were changed (Polygon -> Area, Point -> Position)
+
+* The specification will not mention streaming, because it is an implementation detail
+
+* Agreed that we would allow named "locations" (now Positions)
+
+* Agreed that named “times” seem to be a good analogy to named “locations”, such as “Latest”
+
+* Groups vs Collections were explored and the current working definition of Collections remains
+
+=== Recommended Topics for further discussion
+
+* Contribute EDR API definition of a Collection to the wider OGC debate
+
+* Decide what Metadata frameworks should be used, recommended or mandated and expand metadata offerings
+
+* Determine workflows and search metadata to integrate with OGC API - Records
+
+* Security considerations. This needs to be coordinated with other OGC API groups and the Security Domain Working Group
+
+* Test other sampling geometry types.
+
+* Continue to investigate how to integrate with other APIs (features/coordinates, maps)
+
+* Incorporate a pub/sub mechanism with a later version of the EDR API specification
+
+* Investigate how to align with decision impact groups like SmartCity, others
+
+=== Next Steps for EDR API Specification
+
+* Generate Engineering Report on Sprint
+
+* Finalize updates to current specification
+
+* Update documentation
+
+* Start wider consultation processes inside and outside OGC
