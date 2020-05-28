@@ -34,8 +34,9 @@ All questions regarding this document should be directed to the editor or the co
 [width="80%",options="header",caption=""]
 |====================
 |Name |Organization | Role
-|((Full Name)) | (( from org )) | ((Editor/Contributor))
-|((Full Name)) | ((from org)) |((Editor/Contributor))
+|((Chris Little)) | (( UK Met Office)) | ((Editor))
+|((Steve Olson)) | ((US National Weather Service)) |((Editor))
+|((Peng Yue)) | ((Wuhan University)) |((Editor))
 |====================
 
 
