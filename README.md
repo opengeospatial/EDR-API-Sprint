@@ -6,4 +6,4 @@ See the [Wiki](https://github.com/opengeospatial/EDR-API-Sprint/wiki) for the ag
 
 Please use [issues](https://github.com/opengeospatial/EDR-API-Sprint/issues) for any "for the record" content and be conscious of keeping the issues well-structured and on-point.
 
-There is a final [Engineering Report of the Sprint](https://github.com/opengeospatial/EDR-API-Sprint/blob/master/EDR-API-Sprint-ER/20-032.pdf) as a PDF but also as a [Markdown Document](https://github.com/opengeospatial/EDR-API-Sprint/blob/master/Final_Report_0of_EDR_API_Sprint.md).
+There is a final [Engineering Report of the Sprint](https://github.com/opengeospatial/EDR-API-Sprint/blob/master/EDR-API-Sprint-ER/20-032.pdf) as a PDF but also as a [Markdown Document](https://github.com/opengeospatial/EDR-API-Sprint/blob/master/Final_Report_of_EDR_API_Sprint.md).
